@@ -106,9 +106,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="badFood.jpg" />
-    <Content Include="burger.jpg" />
-    <Content Include="codePhoto.jpg" />
+    <Content Include="addItem.aspx" />
+    <Content Include="Images\badFood.jpg" />
+    <Content Include="Images\burger.jpg" />
+    <Content Include="Images\codePhoto.jpg" />
     <Content Include="Menu.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -127,7 +128,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="pizza.jpg" />
+    <Content Include="Images\pizza.jpg" />
     <Content Include="windowsError.png" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -165,6 +166,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addItem.aspx.cs">
+      <DependentUpon>addItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addItem.aspx.designer.cs">
+      <DependentUpon>addItem.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
