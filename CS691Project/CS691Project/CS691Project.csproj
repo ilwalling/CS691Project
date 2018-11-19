@@ -134,6 +134,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Images\pizza.jpg" />
+    <Content Include="Scripts\styleAnimation.js" />
     <Content Include="windowsError.png" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

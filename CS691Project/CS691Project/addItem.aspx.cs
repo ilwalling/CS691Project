@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -132,6 +133,23 @@ namespace CS691Project
                 if (selectedItem != null)
                 {
                     cmd = new SqlCommand("DELETE FROM MenuItem WHERE Name='" + selectedItem + "'", conn);
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+
+        }
+
+        protected void updateWelcome_Click(object sender, EventArgs e)
+        {
+            StringBuilder newMsg = new StringBuilder();
+             newMsg.Append(welcomeTextArea.InnerText);
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
+            {
+                conn.Open();
+                if (newMsg != null && newMsg.ToString() !="")
+                {
+                    cmd = new SqlCommand("UPDATE WelcomeMessage SET WelcomeText ='" + newMsg.ToString() + "' WHERE Id=0", conn);
                     cmd.ExecuteNonQuery();
 
                 }

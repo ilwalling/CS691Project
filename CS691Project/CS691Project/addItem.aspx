@@ -50,8 +50,22 @@
                         <asp:Button id="DeleteButton" BackColor="Black" ForeColor="LawnGreen" Text="Delete" OnClick="DeleteButton_Click" runat="server" autopostback="true"/>
                     </li>
                 </ul>
+            </div> 
+        </asp:Panel>
+            <hr />
+            <br />
+            <br />
+        <h1 style="color:lawngreen">Modify Welcome Message</h1>
+        <asp:Panel Width="80%" BackColor="#676565" runat="server" HorizontalAlign="Center">
+            <div width="60%" style="padding:10px">
+            <asp:Label ForeColor="black" runat="server">Welcome Message: </asp:Label>
+            <textarea id="welcomeTextArea" style="background-color:black; color:lawngreen; max-width:60%" runat="server"></textarea>
             </div>
+            <br />
+            <asp:Button id="updateWelcome" BackColor="Black" ForeColor="LawnGreen" Text="Update" OnClick="updateWelcome_Click" runat="server"/>
+        
             
         </asp:Panel>
+
     </center>
 </asp:Content>
