@@ -107,6 +107,10 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="addItem.aspx" />
+    <Content Include="App_Data\691Database.mdf" />
+    <Content Include="App_Data\691Database_log.ldf">
+      <DependentUpon>691Database.mdf</DependentUpon>
+    </Content>
     <Content Include="Images\badFood.jpg" />
     <Content Include="Images\burger.jpg" />
     <Content Include="Images\codePhoto.jpg" />
@@ -230,9 +234,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
@@ -243,6 +245,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -54,7 +54,6 @@
                         <li><a runat="server" href="~/Menu">Menu</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Login">Login</a></li>
-                        <li><a runat="server" href="~/addItem">Modify Items</a></li>
                     </ul>
                 </div>
             </div>

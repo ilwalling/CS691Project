@@ -12,16 +12,32 @@
             </asp:TableHeaderRow>
         </asp:Table>
         <hr />
-        <asp:Panel runat="server" Width="90%" BackColor="#474444">
+        <div id="dynamicContent" runat="server">
+           
+             
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <asp:Panel runat='server' Width='90%' BackColor='#474444'>
             <br />
-            <div style="float:left; width:20%; overflow-y:hidden">
-                <asp:Image src="Images/pizza.jpg" width="100%" runat="server" />
+            <div style='float:left; width:20%; overflow-y:hidden'>
+                <asp:Image src='Images/pizza.jpg' width='100%' runat='server' />
             </div>
-            <div style="width:70%">
-                <h3 style="color:lawngreen">The 3A.M. Group Project Meeting</h3>
-                <p style="color:white">A large 12" peperroni pizza made to feed a group of 3.  Enjoy this with a 2 liter of your favorite soft drink to keep the group working.  Ingredients: Cheese, Pepperoni, Wheat</p>
+            <div style='width:70%'>
+                <h3 style='color:lawngreen'>The 3A.M. Group Project Meeting</h3>
+                <p style='color:white'>A large 12 peperroni pizza made to feed a group of 3.  Enjoy this with a 2 liter of your favorite soft drink to keep the group working.  Ingredients: Cheese, Pepperoni, Wheat</p>
             </div>
-            <div style="float:right; width:10%"><p style="color:white">$00010000</p></div>
+            <div style='float:right; width:10%'><p style='color:white'>$00010000</p></div>
             <br />
             <br />
         </asp:Panel>

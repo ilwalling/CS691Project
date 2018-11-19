@@ -13,6 +13,15 @@ namespace CS691Project {
     public partial class addItem {
         
         /// <summary>
+        /// photoDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList photoDropDown;
+        
+        /// <summary>
         /// itemTextBox control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace CS691Project {
         protected global::System.Web.UI.WebControls.TextBox itemPrice;
         
         /// <summary>
+        /// itemDescriptionTextArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea itemDescriptionTextArea;
+        
+        /// <summary>
         /// submitButton control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace CS691Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button cancelButton;
+        
+        /// <summary>
+        /// listboxItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox listboxItems;
         
         /// <summary>
         /// EditButton control.
