@@ -29,7 +29,7 @@ namespace CS691Project
 
                 if (dr.HasRows == true)
                 {
-                    htmlCode.Append("<h3 style='color: white'>");
+                    htmlCode.Append("<h3 id='welcomeMsg' style='color: white'>");
 
                     while (dr.Read())
                     {

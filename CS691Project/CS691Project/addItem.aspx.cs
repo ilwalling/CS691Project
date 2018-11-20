@@ -16,8 +16,6 @@ namespace CS691Project
     public partial class addItem : System.Web.UI.Page
     {
         SqlCommand cmd = new SqlCommand();
-        SqlConnection conn = new SqlConnection();
-        SqlDataAdapter ada = new SqlDataAdapter();
         SqlDataReader dr;
         DataSet ds = new DataSet();
 
@@ -143,7 +141,7 @@ namespace CS691Project
         protected void updateWelcome_Click(object sender, EventArgs e)
         {
             StringBuilder newMsg = new StringBuilder();
-             newMsg.Append(welcomeTextArea.InnerText);
+            newMsg.Append(welcomeTextArea.InnerText);
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
             {
                 conn.Open();
