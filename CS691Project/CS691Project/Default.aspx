@@ -5,10 +5,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="Content/Site.css" type="text/css" />
     <center>
+        <asp:DropDownList id="restarauntDropDown" runat="server" BackColor="Black" ForeColor="LawnGreen" AutoPostBack="true">
+            <asp:ListItem Value="0" Text="Developer's Dwelling"></asp:ListItem>
+            <asp:ListItem Value="1" Text="The Local Cuisine"></asp:ListItem>
+            <asp:ListItem Value="2" Text="Grandma's Cooking"></asp:ListItem>
+        </asp:DropDownList>
     <asp:Panel style="background-color:#676565" Width="60%" HorizontalAlign="Center" runat="server">
-        <h1 style='color: lawngreen'>The Developer's Dwelling</h1>
+        <div id="dynamicTitle" runat="server">
+
+        </div>
         <asp:Image src="Images/codePhoto.jpg" Width="60%" runat="server"/>
-        <div id="dynamicMessage" class="typewriter" runat="server">
+        <div id="dynamicContent" runat="server">
 
         </div>
     </asp:Panel>

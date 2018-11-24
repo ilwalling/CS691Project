@@ -13,12 +13,30 @@ namespace CS691Project {
     public partial class _Default {
         
         /// <summary>
-        /// dynamicMessage control.
+        /// restarauntDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dynamicMessage;
+        protected global::System.Web.UI.WebControls.DropDownList restarauntDropDown;
+        
+        /// <summary>
+        /// dynamicTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dynamicTitle;
+        
+        /// <summary>
+        /// dynamicContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dynamicContent;
     }
 }

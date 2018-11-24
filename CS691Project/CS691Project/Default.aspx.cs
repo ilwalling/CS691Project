@@ -18,38 +18,48 @@ namespace CS691Project
         SqlDataAdapter ada = new SqlDataAdapter();
         SqlDataReader dr;
         DataSet ds = new DataSet();
+        DataTable dt = new DataTable();
+        string companyName;
+        string welcomeMessage;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            int restarauntId = Convert.ToInt32(restarauntDropDown.SelectedValue);
             StringBuilder htmlCode = new StringBuilder();
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
             {
-                conn.Open();
-                cmd = new SqlCommand("SELECT * FROM WelcomeMessage", conn);
-                dr = cmd.ExecuteReader();
-
-                if (dr.HasRows == true)
+                
+                
+                using (cmd = new SqlCommand("SELECT * FROM WebTitles WHERE R_id=" + restarauntId, conn))
                 {
-                    htmlCode.Append("<h3 id='welcomeMsg' style='color: white'>");
-
-                    while (dr.Read())
-                    {
-                        
-                        string welcomeMessage = dr.GetString(1);
-                        htmlCode.Append(welcomeMessage);
-                        
-
-
-
-
-                    }
-                    htmlCode.Append("</h3>");
-                    dynamicMessage.Controls.Add(new LiteralControl(htmlCode.ToString()));
-                    dr.Close();
-
-
-
-
+                    ada = new SqlDataAdapter(cmd);
+                    conn.Open();
+                    ada.Fill(dt);
+                    conn.Close();
                 }
+                
+                foreach(DataRow row in dt.Rows)
+                {
+                    if(row["MessageType"].ToString().Trim() == "CompanyName")
+                    {
+                        companyName = row["MessageText"].ToString();
+                    }
+                    if (row["MessageType"].ToString().Trim() == "WelcomeMessage")
+                    {
+                        welcomeMessage = row["MessageText"].ToString();
+                    }
+                }
+                      
+                        htmlCode.Append("<h1 style='color: lawngreen'>");
+                        htmlCode.Append(companyName);
+                        htmlCode.Append("");
+                        htmlCode.Append("<h3 id='welcomeMsg' style='color: white'>");
+                        htmlCode.Append(welcomeMessage);
+                        htmlCode.Append("</h3>");
+              
+                    dynamicContent.Controls.Add(new LiteralControl(htmlCode.ToString()));
+                    
+   
 
             }
 
