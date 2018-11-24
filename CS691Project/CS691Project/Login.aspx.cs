@@ -16,6 +16,7 @@ namespace CS691Project
         SqlConnection conn = new SqlConnection();
         SqlDataAdapter ada = new SqlDataAdapter();
         SqlDataReader dr;
+        DataTable dt = new DataTable();
         DataSet ds = new DataSet();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -31,18 +32,40 @@ namespace CS691Project
         {
             string username = usernameTextBox.Text;
             string password = passwordTextBox.Text;
+            HttpCookie cookName = new HttpCookie("Name");
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
             {
-                conn.Open();
+                
 
                 if (username != null && username != "" && password != null && password != "")
                 {
-                    cmd = new SqlCommand("SELECT * FROM Login where Username='" + username + "' and Password='" + password + "'", conn);
-                    dr = cmd.ExecuteReader();
-                    if (dr.HasRows == true)
+                    using (cmd = new SqlCommand("SELECT * FROM Login where Username='" + username + "' and Password='" + password + "'", conn))
                     {
-                        dr.Read();
-                        Response.Redirect("addItem.aspx");
+                        ada = new SqlDataAdapter(cmd);
+                        conn.Open();
+                        ada.Fill(dt);
+                        conn.Close();
+                    }
+
+                    if (dt.Rows.Count >= 1)
+                    {
+                        
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            
+                            cookName.Value = username;
+                            Response.Cookies.Add(cookName);
+                            if (row["Position"].ToString().Trim() == "Owner")
+                            {
+                                
+                                Response.Redirect("addItem.aspx");
+                            }
+                            else if(row["Position"].ToString().Trim() == "Customer")
+                            {
+                                Response.Redirect("BuildCart.aspx");
+                            }
+                        }
+                        
                     }
                     else
                     {

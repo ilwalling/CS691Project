@@ -45,7 +45,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">The Developer's Dwelling</a>
+                    <a class="navbar-brand" runat="server" href="~/">Parent Company</a>
                     <asp:Image src="windowsError.png" runat="server" CssClass="navbar-brand"/>
                 </div>
                 <div class="navbar-collapse collapse">

@@ -111,6 +111,7 @@
     <Content Include="App_Data\691Database_log.ldf">
       <DependentUpon>691Database.mdf</DependentUpon>
     </Content>
+    <Content Include="BuildCart.aspx" />
     <Content Include="Images\badFood.jpg" />
     <Content Include="Images\burger.jpg" />
     <Content Include="Images\codePhoto.jpg" />
@@ -188,6 +189,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BuildCart.aspx.cs">
+      <DependentUpon>BuildCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuildCart.aspx.designer.cs">
+      <DependentUpon>BuildCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

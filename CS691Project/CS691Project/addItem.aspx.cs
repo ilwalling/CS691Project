@@ -18,16 +18,18 @@ namespace CS691Project
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
         DataSet ds = new DataSet();
+        int restarauntId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            restarauntId = Convert.ToInt32(restarauntDropDown.SelectedValue);
             if (!IsPostBack)
             {
                 listboxItems.Items.Clear();
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
                 {
                     conn.Open();
-                    cmd = new SqlCommand("SELECT * FROM MenuItem", conn);
+                    cmd = new SqlCommand("SELECT * FROM MenuItem where R_id=" + restarauntId, conn);
                     dr = cmd.ExecuteReader();
                     if (dr.HasRows == true)
                     {
@@ -64,12 +66,13 @@ namespace CS691Project
                 conn.Open();
                 if (name != null && name != "" && price != null && price != "" && description != null && description != "")
                 {
-                    cmd = new SqlCommand("INSERT INTO MenuItem (Name, Description, Price, Photo) " +
-                        "VALUES (@name, @description, @price, @photo)", conn);
+                    cmd = new SqlCommand("INSERT INTO MenuItem (Name, Description, Price, Photo, R_id) " +
+                        "VALUES (@name, @description, @price, @photo, @R_id)", conn);
                     cmd.Parameters.AddWithValue("@name", name);
                     cmd.Parameters.AddWithValue("@description", description);
                     cmd.Parameters.AddWithValue("@price", price);
                     cmd.Parameters.AddWithValue("@photo", photo);
+                    cmd.Parameters.AddWithValue("@R_id", restarauntId);
 
                     cmd.ExecuteNonQuery();
                     itemTextBox.Text = "";
@@ -96,7 +99,7 @@ namespace CS691Project
                 conn.Open();
                 if (selectedItem != null)
                 {
-                    cmd = new SqlCommand("SELECT * FROM MenuItem WHERE Name='" + selectedItem + "'", conn);
+                    cmd = new SqlCommand("SELECT * FROM MenuItem WHERE Name='" + selectedItem + "' AND R_id="+ restarauntId, conn);
                     dr = cmd.ExecuteReader();
 
                     if (dr.HasRows == true)
@@ -130,7 +133,7 @@ namespace CS691Project
                 conn.Open();
                 if (selectedItem != null)
                 {
-                    cmd = new SqlCommand("DELETE FROM MenuItem WHERE Name='" + selectedItem + "'", conn);
+                    cmd = new SqlCommand("DELETE FROM MenuItem WHERE Name='" + selectedItem + "' AND R_id=" + restarauntId , conn);
                     cmd.ExecuteNonQuery();
 
                 }
@@ -147,12 +150,34 @@ namespace CS691Project
                 conn.Open();
                 if (newMsg != null && newMsg.ToString() !="")
                 {
-                    cmd = new SqlCommand("UPDATE WelcomeMessage SET WelcomeText ='" + newMsg.ToString() + "' WHERE Id=0", conn);
+                    cmd = new SqlCommand("UPDATE WebTitles SET MessageText ='" + newMsg.ToString() + "' WHERE r_id=" + restarauntId +" AND MessageType = 'WelcomeMessage'", conn);
                     cmd.ExecuteNonQuery();
 
                 }
             }
 
+        }
+
+        protected void restarauntDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listboxItems.Items.Clear();
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
+            {
+                conn.Open();
+                cmd = new SqlCommand("SELECT * FROM MenuItem where R_id=" + restarauntId, conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows == true)
+                {
+                    while (dr.Read())
+                    {
+                        ListItem myItem = new ListItem(dr.GetString(0));
+                        myItem.Text = dr.GetString(0);
+                        listboxItems.Items.Add(myItem);
+                    }
+
+                }
+
+            }
         }
     }
 }
