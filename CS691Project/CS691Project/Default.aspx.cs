@@ -50,7 +50,7 @@ namespace CS691Project
                     }
                 }
                       
-                        htmlCode.Append("<h1 style='color: lawngreen'>");
+                        htmlCode.Append("<h1 style='color: lawngreen' class='typewriter'>");
                         htmlCode.Append(companyName);
                         htmlCode.Append("");
                         htmlCode.Append("<h3 id='welcomeMsg' style='color: white'>");

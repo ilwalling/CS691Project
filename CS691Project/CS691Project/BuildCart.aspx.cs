@@ -72,7 +72,7 @@ namespace CS691Project
                 
                 cmd = new SqlCommand("INSERT INTO Orders (OrderTime, MenuItems, R_id, CustomerUsername) " +
                     "VALUES (@date, @items, @R_id, @C_username)", conn);
-                cmd.Parameters.AddWithValue("@date", System.DateTime.Now);
+                cmd.Parameters.AddWithValue("@date", System.DateTime.Now.ToString());
                 cmd.Parameters.AddWithValue("@items", itemsSelected);
                 cmd.Parameters.AddWithValue("@R_id", restarauntId);
                 cmd.Parameters.AddWithValue("@C_username", customerId);

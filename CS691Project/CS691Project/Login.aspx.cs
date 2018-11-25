@@ -64,6 +64,10 @@ namespace CS691Project
                             {
                                 Response.Redirect("BuildCart.aspx");
                             }
+                            else if (row["Position"].ToString().Trim() == "Director")
+                            {
+                                Response.Redirect("AssignServer.aspx");
+                            }
                         }
                         
                     }

@@ -111,6 +111,7 @@
     <Content Include="App_Data\691Database_log.ldf">
       <DependentUpon>691Database.mdf</DependentUpon>
     </Content>
+    <Content Include="AssignServer.aspx" />
     <Content Include="BuildCart.aspx" />
     <Content Include="Images\badFood.jpg" />
     <Content Include="Images\burger.jpg" />
@@ -189,6 +190,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AssignServer.aspx.cs">
+      <DependentUpon>AssignServer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssignServer.aspx.designer.cs">
+      <DependentUpon>AssignServer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BuildCart.aspx.cs">
       <DependentUpon>BuildCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
