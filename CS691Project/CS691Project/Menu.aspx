@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Menu.aspx.cs" Inherits="CS691Project.Contact" %>
+﻿<%@ Page Title="Menu" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Menu.aspx.cs" Inherits="CS691Project.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <center>
@@ -37,7 +37,7 @@
 
 
 
-        <asp:Panel runat='server' Width='90%' BackColor='#474444'>
+        <asp:Panel runat='server' Width='90%' BackColor='#474444' Visible="false">
             <br />
             <div style='float:left; width:20%; overflow-y:hidden'>
                 <asp:Image src='Images/pizza.jpg' width='100%' runat='server' />
@@ -54,7 +54,7 @@
         <br />
         <br />
 
-         <asp:Panel runat="server" Width="90%" BackColor="#474444">
+         <asp:Panel runat="server" Width="90%" BackColor="#474444" Visible="false">
             <br />
             <div style="float:left; width:20%">
                 <asp:Image src="Images/burger.jpg" width="100%" runat="server" />
@@ -71,7 +71,7 @@
         <br />
         <br />
 
-         <asp:Panel runat="server" Width="90%" BackColor="#474444">
+         <asp:Panel runat="server" Width="90%" BackColor="#474444" Visible="false">
             <br />
             <div style="float:left; width:20%">
                 <asp:Image src="Images/badFood.jpg" width="100%" runat="server" />

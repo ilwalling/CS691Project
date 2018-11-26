@@ -187,5 +187,10 @@ namespace CS691Project
 
             }
         }
+
+        protected void generateReportButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ReportPage.aspx");
+        }
     }
 }

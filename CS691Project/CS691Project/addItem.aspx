@@ -71,8 +71,16 @@
             </div>
             <br />
             <asp:Button id="updateWelcome" BackColor="Black" ForeColor="LawnGreen" Text="Update" OnClick="updateWelcome_Click" runat="server"/>
-        
-            
+        </asp:Panel>
+             <hr />
+            <br />
+            <br />
+        <h1 style="color:lawngreen">View Weekly Report</h1>
+        <asp:Panel Width="80%" BackColor="#676565" runat="server" HorizontalAlign="Center">
+            <div width="60%" style="padding:10px">
+            <asp:Label ForeColor="black" runat="server">View Report: </asp:Label>
+            </div>
+            <asp:Button id="generateReportButton" BackColor="Black" ForeColor="LawnGreen" Text="Generate" OnClick="generateReportButton_Click" runat="server"/>
         </asp:Panel>
 
     </center>
