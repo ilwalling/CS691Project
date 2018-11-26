@@ -18,6 +18,8 @@ namespace CS691Project
         SqlConnection conn = new SqlConnection();
         SqlDataAdapter ada = new SqlDataAdapter();
         DataTable dt = new DataTable();
+
+        //gets data from database where the restaraunt id is the same as the one selected from the dropdown and creates menu objects
         protected void Page_Load(object sender, EventArgs e)
         {
             StringBuilder htmlCode = new StringBuilder();

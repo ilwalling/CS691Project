@@ -19,6 +19,8 @@ namespace CS691Project
         SqlDataAdapter ada = new SqlDataAdapter();
         DataTable dt = new DataTable();
         string customerId;
+
+        //populates checkboxlist to show menu items for selected restaraunt
         protected void Page_Load(object sender, EventArgs e)
         {
             restarauntId = Convert.ToInt32(restarauntDropDown.SelectedValue);
@@ -47,6 +49,7 @@ namespace CS691Project
                
         }
 
+        //builds string of selected items and stores menu items, time, restaraunt id, and username in order database
         protected void submitButton_Click(object sender, EventArgs e)
         {
             string itemsSelected="";
@@ -88,6 +91,7 @@ namespace CS691Project
             Response.Redirect("Login.aspx");
         }
 
+        //changes restaraunt and updates with restaraunt information
         protected void restarauntDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             checkBoxMenuItems.Items.Clear();

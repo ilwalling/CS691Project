@@ -20,6 +20,8 @@ namespace CS691Project
         DataTable dt = new DataTable();
         DataTable dt1 = new DataTable();
         string customerId;
+
+        //grabs data from database and loads servers into server dropdown and loads menu orders into order listboxes
         protected void Page_Load(object sender, EventArgs e)
         {
             restarauntId = Convert.ToInt32(restarauntDropDown.SelectedValue);
@@ -73,6 +75,7 @@ namespace CS691Project
             }
         }
 
+        //updates order to add the servers name
         protected void assignButton_Click(object sender, EventArgs e)
         {
             string selectedOrder = orderListBox.SelectedItem.Text;
@@ -90,6 +93,7 @@ namespace CS691Project
 
         }
 
+        //changes restaraunt and displays information for selected restaraunt
         protected void restarauntDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             serverDropDownList.Items.Clear();
@@ -129,6 +133,7 @@ namespace CS691Project
 
         }
 
+        //populates text fields to show order details
         protected void orderAssignedListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
@@ -155,6 +160,7 @@ namespace CS691Project
 
         }
 
+        //populates text fields to show order details
         protected void orderListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))

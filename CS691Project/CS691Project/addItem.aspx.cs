@@ -22,7 +22,10 @@ namespace CS691Project
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //set restaraunt id
             restarauntId = Convert.ToInt32(restarauntDropDown.SelectedValue);
+
+            //populating listbox with all items for that restaraunt
             if (!IsPostBack)
             {
                 listboxItems.Items.Clear();
@@ -54,6 +57,7 @@ namespace CS691Project
             Response.Redirect("addItem.aspx");
         }
 
+        //Inserts into database the new item information
         protected void submitButton_Click(object sender, EventArgs e)
         {
             string name = itemTextBox.Text;
@@ -87,6 +91,7 @@ namespace CS691Project
 
         }
 
+        //not currently in use
         protected void EditButton_Click(object sender, EventArgs e)
         {
             string selectedItem = listboxItems.SelectedItem.ToString();
@@ -125,6 +130,7 @@ namespace CS691Project
 
         }
 
+        //gets the item that is currently selected and deletes from database
         protected void DeleteButton_Click(object sender, EventArgs e)
         {
             string selectedItem = listboxItems.SelectedItem.ToString();
@@ -141,6 +147,7 @@ namespace CS691Project
 
         }
 
+        //updates welcome message with the textbox message
         protected void updateWelcome_Click(object sender, EventArgs e)
         {
             StringBuilder newMsg = new StringBuilder();
@@ -158,6 +165,7 @@ namespace CS691Project
 
         }
 
+        //changes R_id so that all data shown and updated will display the restaraunt selected
         protected void restarauntDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             listboxItems.Items.Clear();

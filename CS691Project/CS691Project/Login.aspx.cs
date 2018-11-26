@@ -28,6 +28,7 @@ namespace CS691Project
             
         }
 
+        //checks to see if the username and pasword are a match, then redirects the user based on their position
         protected void LoginButton_Click(object sender, EventArgs e)
         {
             string username = usernameTextBox.Text;

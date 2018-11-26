@@ -21,7 +21,9 @@ namespace CS691Project
         DataTable dt = new DataTable();
         string companyName;
         string welcomeMessage;
-        
+
+
+        //loads the page and executes html code with the data from the database
         protected void Page_Load(object sender, EventArgs e)
         {
             int restarauntId = Convert.ToInt32(restarauntDropDown.SelectedValue);
