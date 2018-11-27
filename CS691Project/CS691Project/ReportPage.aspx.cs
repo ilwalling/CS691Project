@@ -18,13 +18,26 @@ namespace CS691Project
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
             {
                 DataTable dt = new DataTable();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Orders", conn))
+                DataTable dt1 = new DataTable();
+                DateTime weekCutoff = new DateTime();
+                weekCutoff = DateTime.Now;
+                weekCutoff = weekCutoff.AddDays(-7);
+                string sWeekCutoff = weekCutoff.ToString();
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Orders WHERE OrderTime > '" +sWeekCutoff +"'", conn))
                 {
                     SqlDataAdapter ada = new SqlDataAdapter(cmd);
                     conn.Open();
                     ada.Fill(dt);
                     conn.Close();
                 }
+                using (SqlCommand cmd1 = new SqlCommand("SELECT * FROM Waiters", conn))
+                {
+                    SqlDataAdapter ada1 = new SqlDataAdapter(cmd1);
+                    conn.Open();
+                    ada1.Fill(dt1);
+                    conn.Close();
+                }
+
                 StringBuilder str = new StringBuilder();
                 str.Append("<table >");
                 str.Append("<tr><td>Order Time</td><td>Menu Items</td><td>Restaraunt Id</td><td>Customer Username</td><td>Waiter Name</td></tr>");
