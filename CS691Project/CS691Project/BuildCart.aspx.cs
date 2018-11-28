@@ -13,18 +13,18 @@ namespace CS691Project
     public partial class BuildCart : System.Web.UI.Page
     {
         SqlCommand cmd = new SqlCommand();
-        SqlDataReader dr;
         DataSet ds = new DataSet();
         int restarauntId;
         SqlDataAdapter ada = new SqlDataAdapter();
         DataTable dt = new DataTable();
         string customerId;
+        HttpCookie nameCookie;
 
         //populates checkboxlist to show menu items for selected restaraunt
         protected void Page_Load(object sender, EventArgs e)
         {
             restarauntId = Convert.ToInt32(restarauntDropDown.SelectedValue);
-            HttpCookie nameCookie = Request.Cookies["Name"];
+            nameCookie = Request.Cookies["Name"];
             customerId = Server.HtmlEncode(nameCookie.Value);
             if (!IsPostBack)
             {
@@ -73,12 +73,21 @@ namespace CS691Project
             {
                 conn.Open();
                 
-                cmd = new SqlCommand("INSERT INTO Orders (OrderTime, MenuItems, R_id, CustomerUsername) " +
-                    "VALUES (@date, @items, @R_id, @C_username)", conn);
+                cmd = new SqlCommand("INSERT INTO Orders (OrderTime, MenuItems, R_id, CustomerUsername,Tip) " +
+                    "VALUES (@date, @items, @R_id, @C_username, @tip)", conn);
                 cmd.Parameters.AddWithValue("@date", System.DateTime.Now.ToString());
                 cmd.Parameters.AddWithValue("@items", itemsSelected);
                 cmd.Parameters.AddWithValue("@R_id", restarauntId);
                 cmd.Parameters.AddWithValue("@C_username", customerId);
+                if(int.TryParse(tipTextbox.Text, out int n))
+                {
+                    cmd.Parameters.AddWithValue("@tip", Convert.ToInt32(tipTextbox.Text));
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@tip", 0);
+                }
+                
 
                 cmd.ExecuteNonQuery();
                 checkBoxMenuItems.ClearSelection();
@@ -112,6 +121,12 @@ namespace CS691Project
                 }
             }
 
+        }
+
+        protected void viewOrders_Click(object sender, EventArgs e)
+        {
+            Response.Cookies.Add(nameCookie);
+            Response.Redirect("ViewMyOrders.aspx");
         }
     }
 }

@@ -10,16 +10,7 @@
 namespace CS691Project {
     
     
-    public partial class AssignServer {
-        
-        /// <summary>
-        /// restarauntDropDown control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList restarauntDropDown;
+    public partial class ViewMyOrders {
         
         /// <summary>
         /// orderListBox control.
@@ -29,42 +20,6 @@ namespace CS691Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox orderListBox;
-        
-        /// <summary>
-        /// serverDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList serverDropDownList;
-        
-        /// <summary>
-        /// orderStatusDropDownStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList orderStatusDropDownStatus;
-        
-        /// <summary>
-        /// assignButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button assignButton;
-        
-        /// <summary>
-        /// orderAssignedListBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox orderAssignedListBox;
         
         /// <summary>
         /// customerIdTextbox control.
@@ -101,5 +56,14 @@ namespace CS691Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tipTextBox;
+        
+        /// <summary>
+        /// orderStatusDropDownStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList orderStatusDropDownStatus;
     }
 }

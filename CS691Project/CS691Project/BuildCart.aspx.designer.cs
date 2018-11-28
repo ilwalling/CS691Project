@@ -31,6 +31,15 @@ namespace CS691Project {
         protected global::System.Web.UI.WebControls.CheckBoxList checkBoxMenuItems;
         
         /// <summary>
+        /// tipTextbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tipTextbox;
+        
+        /// <summary>
         /// submitButton control.
         /// </summary>
         /// <remarks>
@@ -47,5 +56,14 @@ namespace CS691Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button cancelButton;
+        
+        /// <summary>
+        /// viewOrders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button viewOrders;
     }
 }

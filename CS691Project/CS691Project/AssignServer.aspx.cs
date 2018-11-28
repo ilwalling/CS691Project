@@ -72,19 +72,32 @@ namespace CS691Project
                     }
                 }
 
+                orderStatusDropDownStatus.Items.Add("Received");
+                orderStatusDropDownStatus.Items.Add("In Preperation");
+                orderStatusDropDownStatus.Items.Add("Adding Final Touch");
+                orderStatusDropDownStatus.Items.Add("On The Way");
+                orderStatusDropDownStatus.Items.Add("Complete");
             }
         }
 
         //updates order to add the servers name
         protected void assignButton_Click(object sender, EventArgs e)
         {
-            string selectedOrder = orderListBox.SelectedItem.Text;
+            string selectedOrder;
+            if (orderListBox.SelectedItem != null)
+            {
+                selectedOrder = orderListBox.SelectedItem.Text;
+            }
+            else
+            {
+                selectedOrder = orderAssignedListBox.SelectedItem.Text;
+            }
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
             {
                 conn.Open();
                 if (selectedOrder != null && selectedOrder.ToString() != "")
                 {
-                    cmd = new SqlCommand("UPDATE Orders SET WaiterName ='" + serverDropDownList.SelectedValue.ToString() + "' WHERE r_id=" + restarauntId + " AND OrderTime = '"+selectedOrder+"'", conn);
+                    cmd = new SqlCommand("UPDATE Orders SET WaiterName ='" + serverDropDownList.SelectedValue.ToString() + "', Status = '"+ orderStatusDropDownStatus.SelectedValue +"' WHERE r_id=" + restarauntId + " AND OrderTime = '"+selectedOrder+"'", conn);
                     cmd.ExecuteNonQuery();
 
                 }
@@ -130,12 +143,18 @@ namespace CS691Project
                     serverDropDownList.Items.Add(myItem);
                 }
             }
+            orderStatusDropDownStatus.Items.Add("Received");
+            orderStatusDropDownStatus.Items.Add("In Preperation");
+            orderStatusDropDownStatus.Items.Add("Adding Final Touch");
+            orderStatusDropDownStatus.Items.Add("On The Way");
+            orderStatusDropDownStatus.Items.Add("Complete");
 
         }
 
         //populates text fields to show order details
         protected void orderAssignedListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            orderListBox.ClearSelection();
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
             {
                 using (cmd = new SqlCommand("SELECT * FROM Orders WHERE R_id=" + restarauntId, conn))
@@ -153,6 +172,8 @@ namespace CS691Project
                         customerIdTextbox.Text = row["CustomerUsername"].ToString().Trim();
                         menuItemsTextBox.Text = row["MenuItems"].ToString().Trim();
                         waiterNameTextBox.Text = row["WaiterName"].ToString().Trim();
+                        orderStatusDropDownStatus.SelectedValue = row["Status"].ToString().Trim();
+                        tipTextBox.Text = row["Tip"].ToString().Trim();
                     }
 
                 }
@@ -163,6 +184,7 @@ namespace CS691Project
         //populates text fields to show order details
         protected void orderListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            orderAssignedListBox.ClearSelection();
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
             {
                 using (cmd = new SqlCommand("SELECT * FROM Orders WHERE R_id=" + restarauntId, conn))
@@ -180,6 +202,8 @@ namespace CS691Project
                         customerIdTextbox.Text = row["CustomerUsername"].ToString().Trim();
                         menuItemsTextBox.Text = row["MenuItems"].ToString().Trim();
                         waiterNameTextBox.Text = row["WaiterName"].ToString().Trim();
+                        orderStatusDropDownStatus.SelectedValue = row["Status"].ToString().Trim();
+                        tipTextBox.Text = row["Tip"].ToString().Trim();
                     }
 
                 }

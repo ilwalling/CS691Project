@@ -23,10 +23,19 @@
 
         <div style="width:50%;padding:10px">
             <asp:Panel BackColor="#676565" runat="server" Width="100%">
+                <div>
+                <asp:Label runat="server" ForeColor="LawnGreen" Text="Waiter Name"></asp:Label>
                 <asp:DropDownList  ID="serverDropDownList" runat="server" ForeColor="LawnGreen" BackColor="Black" >
 
                 </asp:DropDownList>
-                <asp:Button ID="assignButton" runat="server" BackColor="Black" ForeColor="LawnGreen" Text="Assign" OnClick="assignButton_Click" />
+                </div>
+                <div>
+                    <asp:Label runat="server" ForeColor="LawnGreen" Text="Order Status"></asp:Label>
+                     <asp:DropDownList  ID="orderStatusDropDownStatus" runat="server" ForeColor="LawnGreen" BackColor="Black" >
+
+                </asp:DropDownList>
+                </div>
+                <asp:Button ID="assignButton" runat="server" BackColor="Black" ForeColor="LawnGreen" Text="Update" OnClick="assignButton_Click" />
                 <br />
                 <br />
             </asp:Panel>
@@ -54,6 +63,10 @@
                 <div>
                     <asp:Label runat="server" ForeColor="LawnGreen" Text="Waiter Name"></asp:Label>
                     <asp:TextBox runat="server" ID="waiterNameTextBox" Enabled="false" ForeColor="LawnGreen" BackColor="Black"></asp:TextBox>
+                </div>
+                <div>
+                    <asp:Label runat="server" ForeColor="LawnGreen" Text="Tip:"></asp:Label>
+                    <asp:TextBox runat="server" ID="tipTextBox" Enabled="false" ForeColor="LawnGreen" BackColor="Black"></asp:TextBox>
                 </div>
                 </asp:Panel>
             </div>

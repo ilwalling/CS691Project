@@ -186,6 +186,7 @@
     </Content>
     <Content Include="Templates\HTMLReport.xslt" />
     <Content Include="Templates\HTMLReportNoScript.xslt" />
+    <Content Include="ViewMyOrders.aspx" />
     <Content Include="windowsError.png" />
     <Content Include="reportDataset.xsc">
       <DependentUpon>reportDataset.xsd</DependentUpon>
@@ -334,6 +335,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="ViewMyOrders.aspx.cs">
+      <DependentUpon>ViewMyOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewMyOrders.aspx.designer.cs">
+      <DependentUpon>ViewMyOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

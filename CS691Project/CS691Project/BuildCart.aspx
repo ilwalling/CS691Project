@@ -10,17 +10,23 @@
             <asp:ListItem Value="2" Text="Grandma's Cooking"></asp:ListItem>
         </asp:DropDownList>
         </div>
-        <div style="width:50%; float:left; padding:10px">
+        <div style="width:50%; padding:10px">
             <asp:Panel BackColor="#676565" runat="server" Width="100%">
                 <asp:CheckBoxList runat="server" ID="checkBoxMenuItems" ForeColor="LawnGreen">
 
                 </asp:CheckBoxList>
                 </asp:Panel>
             </div>
+        <div>
+            <asp:Label runat="server" ForeColor="LawnGreen" Text="Tip:"></asp:Label>
+            <asp:TextBox runat="server" ID="tipTextbox" ForeColor="LawnGreen" BackColor="Black"></asp:TextBox>
+
+        </div>
         <div style="width:50%;padding:10px">
             <asp:Panel BackColor="#676565" runat="server" Width="100%">
                 <asp:Button ID="submitButton" runat="server" BackColor="Black" ForeColor="LawnGreen" Text="Submit" OnClick="submitButton_Click" />
                 <asp:Button ID="cancelButton" runat="server" BackColor="Black" ForeColor="LawnGreen" Text="Cancel" OnClick="cancelButton_Click" />
+                <asp:Button ID="viewOrders" runat="server" BackColor="Black" ForeColor="LawnGreen" Text="View My Orders" OnClick="viewOrders_Click" />
             </asp:Panel>
         </div>
     </center>
